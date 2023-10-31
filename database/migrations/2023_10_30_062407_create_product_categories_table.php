@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::create('product_categories', function (Blueprint $table) {
             $table->id();
-            $table->string('category_name');
-            $table->timestamps();
+            $table->string('cat_name');
         });
     }
 
