@@ -1,18 +1,26 @@
-const inputs = document.querySelectorAll(".input");
+// Toggle password visibility
+const passwordInput = document.getElementById("passwordInput");
+const eyeSlash = document.getElementById("eyeSlash");
+const eye = document.getElementById("eye");
 
-function addcl() {
-    let parent = this.parentNode.parentNode;
-    parent.classList.add("focus");
-}
-
-function remcl() {
-    let parent = this.parentNode.parentNode;
-    if (this.value == "") {
-        parent.classList.remove("focus");
-    }
-}
-
-inputs.forEach((input) => {
-    input.addEventListener("focus", addcl);
-    input.addEventListener("blur", remcl);
+// Jika ingin melihat password
+eyeSlash.addEventListener("click", function () {
+    passwordInput.setAttribute("type", "text");
+    eyeSlash.style.display = "none";
+    eye.style.display = "block";
 });
+
+// Jika tidak ingin melihat password
+eye.addEventListener("click", function () {
+    passwordInput.setAttribute("type", "password");
+    eyeSlash.style.display = "block";
+    eye.style.display = "none";
+});
+
+// Checkbox Ingat saya
+function submitForm() {
+    const form = document.getElementById("loginForm");
+    const rememberMeCheckbox = document.getElementById("rememberMe");
+
+    form.submit();
+}

@@ -33,7 +33,7 @@
             </div>
             @endif
 
-            <form action="" method="POST">
+            <form action="" method="POST" id="loginForm">
                 @csrf
                 <div class="input-form mt-4">
                     <div style="position: relative">
@@ -42,13 +42,19 @@
                     </div>
                     <div style="position: relative">
                         <i class="fas fa-lock" style="position: absolute; bottom: 15px; left: 8px;"></i>
-                        <input type="password" class="mt-4 ms-2 text-white w-100" style="border: 0; border-bottom: 1.8px solid white; background: transparent; padding-left: 30px; padding-bottom: 10px;" placeholder="Password">
-                        <i class="fa-regular fa-eye" style="position: absolute; right: 10px; bottom: 15px;"></i>
+                        <input type="password" id="passwordInput" class="mt-4 ms-2 text-white w-100" style="border: 0; border-bottom: 1.8px solid white; background: transparent; padding-left: 30px; padding-bottom: 10px;" placeholder="Password">
+                        <i class="fa-regular fa-eye-slash" id="eyeSlash" style="position: absolute; right: 10px; bottom: 15px; cursor: pointer;"></i>
+                        <i class="fa-regular fa-eye" id="eye" style="position: absolute; right: 10px; bottom: 15px; cursor: pointer; display: none;"></i>
                     </div>
-                    <button name="submit" type="submit" class="btn bg-white btn-light mt-5 w-50">Masuk</button>
                 </div>
-            </form>
+                <div class="form-check mt-3">
+                    <input class="form-check-input" type="checkbox" id="rememberMe">
+                    <label class="form-check-label text-white" for="rememberMe">Ingat saya</label>
+                </div>
+                <button name="submit" type="submit" class="btn bg-white btn-light mt-5 w-50">Masuk</button>
         </div>
+        </form>
+    </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
