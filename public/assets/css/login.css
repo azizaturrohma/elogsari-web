@@ -14,7 +14,7 @@ body {
     flex-direction: column;
     height: 100vh;
     user-select: none;
-    background: url("../img/bg-login.jpeg") center center;
+    background: url("../img/bg-login-1.jpeg") center center;
     background-size: cover;
 }
 
@@ -28,136 +28,17 @@ body {
     min-height: 480px;
 }
 
-.toggle-container {
-    background-color: #fff;
-    color: #333;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50%;
-    height: 100%;
-    border-radius: 30px 150px 100px 30px;
-    border-color: #333;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.container p {
-    font-size: 14px;
-    line-height: 20px;
-    letter-spacing: 0.3px;
-    margin: 20px 0;
-}
-
-.container form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-}
-
-.form-container {
-    color: #fff;
-    position: relative;
-    height: 100%;
-    left: 50%;
-    width: 50%;
-}
-
-.form-container h1 {
-    font-size: 3rem;
-}
-
-.form-container .input-div {
-    display: flex;
-    position: relative;
-    border-bottom: 2px solid #fff;
-}
-
-.i {
-    color: #fff;
-    display: flex;
-    align-items: center;
-    margin-right: 10px;
-    transition: 0.3s;
-}
-
-.input-div > div {
-    position: relative;
-    height: 45px;
-    flex-grow: 1;
-}
-
-.input-div > div > h5 {
-    position: absolute;
-    font-size: 18px;
-    transition: 0.3s;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.input-div:before,
-.input-div:after {
-    content: "";
-    position: absolute;
-    bottom: -2px;
-    width: 0%;
-    height: 2px;
-    background-color: #38d39f;
-    transition: 0.4s;
-}
-
-.input-div:before {
-    right: 50%;
-}
-
-.input-div:after {
-    left: 50%;
-}
-
-.input-div.focus:before,
-.input-div.focus:after {
-    width: 50%;
-}
-
-.input-div.focus > div > h5 {
-    top: -5px;
-    font-size: 15px;
-}
-
-.input-div.focus > .i > i {
-    color: #38d39f;
-}
-
-.input-div > div > input {
-    position: absolute;
-    width: calc(100% - 20px);
-    height: 100%;
-    border: none;
+input:focus,
+input:focus {
     outline: none;
-    background: none;
-    padding: 0.5rem 10px;
-    font-size: 1.2rem;
-    color: #555;
 }
 
-.input-div.password {
-    margin-bottom: 4px;
+.left-section {
+    border-radius: 20px;
 }
 
-.container button {
-    background-color: #fff;
-    color: #333;
-    font-size: 12px;
-    padding: 10px 45px;
-    border: 1px solid transparent;
-    border-radius: 8px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    margin-top: 10px;
-    cursor: pointer;
+@media (min-width: 768px) {
+    .left-section {
+        border-radius: 30px 100px 100px 30px;
+    }
 }
