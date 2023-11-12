@@ -19,18 +19,31 @@
         <div class="form-container">
             <form>
                 <h1>LOGIN</h1>
-                <span>Masukkan email dan password Anda</span>
-                <input type="email" placeholder="Email">
-                <i class="fa-regular fa-envelope"></i>
-                <input type="password" placeholder="Password">
-                <i class="fa-solid fa-lock"></i>
-                <div class="eye-wrapper">
-                    <span class="close">
-                        <i class="fa-regular fa-eye-slash"></i>
-                    </span>
-                    <span class="open">
-                        <i class="fa-regular fa-eye"></i>
-                    </span>
+                <div class="input-div email">
+                    <div class="i">
+                        <i class="fa-regular fa-envelope"></i>
+                    </div>
+                    <div class="div">
+                        <h5>Email</h5>
+                        <input type="text" class="input">
+                    </div>
+                </div>
+                <div class="input-div password">
+                    <div class="i">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="div">
+                        <h5>Password</h5>
+                        <input type="password" class="input">
+                    </div>
+                    <div class="eye-wrapper">
+                        <span class="close">
+                            <i class="fa-regular fa-eye-slash"></i>
+                        </span>
+                        <span class="open">
+                            <i class="fa-regular fa-eye"></i>
+                        </span>
+                    </div>
                 </div>
                 <button>MASUK</button>
             </form>

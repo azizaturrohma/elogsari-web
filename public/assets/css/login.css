@@ -4,12 +4,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Poppins;
+    font-family: "Poppins", sans-serif;
 }
 
 body {
-    background-color: #c9d6ff;
-    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -22,13 +20,28 @@ body {
 
 .container {
     backdrop-filter: blur(01.5em);
-    color: #333;
     border-radius: 30px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
     position: relative;
     width: 768px;
     max-width: 100%;
     min-height: 480px;
+}
+
+.toggle-container {
+    background-color: #fff;
+    color: #333;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    border-radius: 30px 150px 100px 30px;
+    border-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .container p {
@@ -38,28 +51,101 @@ body {
     margin: 20px 0;
 }
 
-.container span {
-    font-size: 12px;
-}
-
 .container form {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    padding: 0 40px;
     height: 100%;
 }
 
-.container input {
-    background-color: #eee;
+.form-container {
+    color: #fff;
+    position: relative;
+    height: 100%;
+    left: 50%;
+    width: 50%;
+}
+
+.form-container h1 {
+    font-size: 3rem;
+}
+
+.form-container .input-div {
+    display: flex;
+    position: relative;
+    border-bottom: 2px solid #fff;
+}
+
+.i {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    transition: 0.3s;
+}
+
+.input-div > div {
+    position: relative;
+    height: 45px;
+    flex-grow: 1;
+}
+
+.input-div > div > h5 {
+    position: absolute;
+    font-size: 18px;
+    transition: 0.3s;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.input-div:before,
+.input-div:after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    width: 0%;
+    height: 2px;
+    background-color: #38d39f;
+    transition: 0.4s;
+}
+
+.input-div:before {
+    right: 50%;
+}
+
+.input-div:after {
+    left: 50%;
+}
+
+.input-div.focus:before,
+.input-div.focus:after {
+    width: 50%;
+}
+
+.input-div.focus > div > h5 {
+    top: -5px;
+    font-size: 15px;
+}
+
+.input-div.focus > .i > i {
+    color: #38d39f;
+}
+
+.input-div > div > input {
+    position: absolute;
+    width: calc(100% - 20px);
+    height: 100%;
     border: none;
-    margin: 8px 0;
-    padding: 10px 15px;
-    font-size: 13px;
-    border-radius: 8px;
-    width: 100%;
     outline: none;
+    background: none;
+    padding: 0.5rem 10px;
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.input-div.password {
+    margin-bottom: 4px;
 }
 
 .container button {
@@ -74,27 +160,4 @@ body {
     text-transform: uppercase;
     margin-top: 10px;
     cursor: pointer;
-}
-
-.toggle-container {
-    background-color: #fff;
-    color: #333;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50%;
-    height: 100%;
-    border-radius: 30px 150px 100px 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.form-container {
-    position: relative;
-    top: 0;
-    height: 100%;
-    left: 50%;
-    width: 50%;
 }
