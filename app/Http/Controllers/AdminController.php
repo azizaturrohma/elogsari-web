@@ -9,7 +9,7 @@ class AdminController extends Controller
 {
     function index()
     {
-        echo 'Welcome ' . Auth::user()->username;
+        echo 'Welcome ' . Auth::user()->username . '!';
         echo "<a href=''>Logout</a>";
     }
 }
