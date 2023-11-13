@@ -3,19 +3,19 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\WeatherController;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware(['guest'])->group(function () {
-    Route::get('/', [LoginController::class, 'index']);
-    Route::post('/', [LoginController::class, 'login']);
-});
+Route::get('/', [LoginController::class, 'index']);
+Route::post('/login', [LoginController::class, 'login']);
 
-Route::get('/home', function () {
-    return redirect('/admin');
-});
+Route::get('/home', [UserController::class, 'index'])->name('home');
 
-Route::get('/admin', [AdminController::class, 'index']);
-Route::get('/logout', [LoginController::class, 'logout']);
+Route::get('/cuaca', [WeatherController::class, 'index']);
+
+// Route::get('/admin', [AdminController::class, 'index']);
+// Route::get('/logout', [LoginController::class, 'logout']);
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

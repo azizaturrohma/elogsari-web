@@ -14,32 +14,17 @@ class LoginController extends Controller
 
     function login(Request $request)
     {
-        $request->validate(
-            [
-                "email" => "required",
-                "password" => "required",
-            ],
-            [
-                'email.required' => 'Email wajib diisi',
-                'password.required' => 'Password wajib diisi',
-            ]
-        );
+        $this->validate($request, [
+            "email" => "required|email|string",
+            "password" => "required|string|min:8",
+        ]);
 
-        $infologin = [
-            'email' => $request->email,
-            'password' => $request->password,
-        ];
+        $credentials = $request->only('email', 'password');
 
-        if (Auth::attempt($infologin)) {
-            return redirect('admin');
+        if (Auth::attempt($credentials)) {
+            return redirect()->route('home');
         } else {
-            return redirect('')->withErrors('Username dan password yang dimasukkan tidak sesuai')->withInput();
+            return redirect()->route('login.index')->with('error', 'Email dan password tidak sesuai');
         }
-    }
-
-    function logout()
-    {
-        Auth::logout();
-        return redirect('');
     }
 }
