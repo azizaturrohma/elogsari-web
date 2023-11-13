@@ -16,7 +16,7 @@
 <body>
     <div class="weather-container">
 
-        <!-- Icon Weather -->
+        <!-- Weather Icon -->
         @if(isset($weatherData['weather'][0]['icon']))
         <div class="weather-icon">
             <img src="http://openweathermap.org/img/wn/{{ $weatherData['weather'][0]['icon'] }}.png" alt="Weather Icon">
@@ -65,6 +65,8 @@
                 <a href="#" id="clock"><i data-feather="clock"></i></a>
                 @if(isset($weatherData['dt']))
                 <?php
+                $dateTime = new DateTime();
+                $dateTime->setTimezone(new \DateTimeZone('Asia/Jakarta'));
                 $time = $dateTime->format('H:i:s');
                 ?>
                 <p>{{ $time }}</p>

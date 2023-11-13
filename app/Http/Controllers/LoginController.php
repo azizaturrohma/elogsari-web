@@ -16,13 +16,13 @@ class LoginController extends Controller
     {
         $this->validate($request, [
             "email" => "required|email|string",
-            "password" => "required|string|min:8",
+            "password" => "required|string",
         ]);
 
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            return redirect()->route('home');
+            return redirect()->route('dashboard');
         } else {
             return redirect()->route('login.index')->with('error', 'Email dan password tidak sesuai');
         }

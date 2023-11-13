@@ -82,7 +82,7 @@ body {
     display: none;
 }
 
-.btn {
+.navbar .navbar-btn {
     background-color: var(--bg);
     border: 2px solid var(--primary);
     border-radius: 30px;
@@ -93,7 +93,7 @@ body {
     margin-left: 2px;
 }
 
-.btn:hover {
+.navbar-btn:hover {
     background-color: var(--primary);
     color: var(--bg);
 }

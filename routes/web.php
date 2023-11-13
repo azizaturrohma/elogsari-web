@@ -7,15 +7,12 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\WeatherController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [LoginController::class, 'index']);
+Route::get('/', [UserController::class, 'index'])->name('home');
+Route::get('/cuaca', [WeatherController::class, 'index']);
+Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
+Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 
-Route::get('/home', [UserController::class, 'index'])->name('home');
-
-Route::get('/cuaca', [WeatherController::class, 'index']);
-
-// Route::get('/admin', [AdminController::class, 'index']);
-// Route::get('/logout', [LoginController::class, 'logout']);
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

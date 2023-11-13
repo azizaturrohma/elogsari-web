@@ -27,7 +27,7 @@
                 <div class="input-form mt-4">
                     <div style="position: relative">
                         <i class="fa-regular fa-envelope" style="position: absolute; bottom: 15px; left: 8px;"></i>
-                        <input type="email" value="{{ old('email') }}" class="mt-4 ms-2 text-white w-100" style="border: 0; border-bottom: 1.8px solid white; background: transparent; padding-left: 30px; padding-bottom: 10px;" placeholder="Email">
+                        <input name="email" type="email" value="{{ old('email') }}" class="mt-4 ms-2 text-white w-100" style="border: 0; border-bottom: 1.8px solid white; background: transparent; padding-left: 30px; padding-bottom: 10px;" placeholder="Email">
 
                         @error('email')
                         <span class="email-danger">{{ $message }}</span>
@@ -36,7 +36,7 @@
                     </div>
                     <div style="position: relative">
                         <i class="fas fa-lock" style="position: absolute; bottom: 15px; left: 8px;"></i>
-                        <input type="password" id="passwordInput" class="mt-4 ms-2 text-white w-100" style="border: 0; border-bottom: 1.8px solid white; background: transparent; padding-left: 30px; padding-bottom: 10px;" placeholder="Password">
+                        <input name="password" type="password" id="passwordInput" class="mt-4 ms-2 text-white w-100" style="border: 0; border-bottom: 1.8px solid white; background: transparent; padding-left: 30px; padding-bottom: 10px;" placeholder="Password">
 
                         @error('password')
                         <span class="password-danger">{{ $message }}</span>

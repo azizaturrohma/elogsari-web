@@ -37,10 +37,12 @@
             <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
         </div>
 
-        <button type="button" class="btn">Login</button>
+        <div class="navbar-btn">
+            <a href="login"><span id="login">Login</span></a>
+        </div>
 
         <!-- Search Form start -->
-        <div class="search-form">
+        <div class=" search-form">
             <input type="search" id="search-box" placeholder="Cari disini...">
             <label for="search-box"><i data-feather="search"></i></label>
         </div>
