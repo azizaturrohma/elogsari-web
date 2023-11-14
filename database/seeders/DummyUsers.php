@@ -14,11 +14,13 @@ class DummyUsers extends Seeder
     public function run(): void
     {
         $userData = [
-            'username' => 'Ziza',
-            'email' => 'azizaturrohmablt234@gmail.com',
-            'password' => bcrypt('lalalala'),
+            'username' => 'Joko',
+            'email' => 'rumahkreatif321@gmail.com',
+            'password' => bcrypt('1234'),
         ];
 
         User::create($userData);
     }
+
+    //php artisan db:seed --class=DummyUsers
 }
