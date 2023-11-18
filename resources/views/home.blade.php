@@ -33,8 +33,8 @@
         </div>
 
         <div class="navbar-extra">
-            <a href="#" id="search-button"><i data-feather="search"></i></a>
-            <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
+            <a href="#" id="search"><i data-feather="search"></i></a>
+            <a href="#" id="menu"><i data-feather="menu"></i></a>
         </div>
 
         <div class="navbar-btn">
@@ -42,7 +42,7 @@
         </div>
 
         <!-- Search Form start -->
-        <div class=" search-form">
+        <div class="search-form">
             <input type="search" id="search-box" placeholder="Cari disini...">
             <label for="search-box"><i data-feather="search"></i></label>
         </div>
@@ -56,7 +56,7 @@
         feather.replace()
     </script>
 
-    <!-- My Javascript -->
+    <!-- Javascript -->
     <script src="assets/js/home.js"></script>
 </body>
 

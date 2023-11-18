@@ -7,8 +7,19 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
-    function index()
+    function login(Request $request)
     {
-        echo 'Welcome ' . Auth::user()->username . '!';
+        $this->validate($request, [
+            "email" => "required|email|string",
+            "password" => "required|string",
+        ]);
+
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            return view('admin.dashboard');
+        } else {
+            return redirect()->route('login')->with('error', 'Email dan password tidak sesuai');
+        }
     }
 }
