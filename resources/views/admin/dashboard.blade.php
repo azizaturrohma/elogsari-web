@@ -195,17 +195,6 @@
     <!-- Navbar End -->
 
     <div class="main-content" id="panel">
-        <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 mt-3 shadow-none border-radius-xl loopple-navbar-empty" id="navbarTop">
-            <div class="navbar-add" data-toggle="modal" data-target="#navbarModal">
-                <svg id="Layer_1" class="m-auto" width="20px" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 114 114">
-                    <rect style="fill: #cacfda" x="0.5" y="44.5" width="113" height="24" rx="9.94" ry="9.94"></rect>
-                    <path style="fill: #cacfda" d="M146.56,85A9.46,9.46,0,0,1,156,94.44v4.11a9.46,9.46,0,0,1-9.44,9.44H53.44A9.46,9.46,0,0,1,44,98.56V94.44A9.46,9.46,0,0,1,53.44,85h93.11m0-1H53.44A10.48,10.48,0,0,0,43,94.44v4.11A10.48,10.48,0,0,0,53.44,109h93.11A10.48,10.48,0,0,0,157,98.56V94.44A10.48,10.48,0,0,0,146.56,84Z" transform="translate(-43 -40)"></path>
-                    <rect style="fill: #cacfda" x="45.5" y="0.5" width="24" height="113" rx="9.94" ry="9.94"></rect>
-                    <path style="fill: #cacfda" d="M102.56,41A9.46,9.46,0,0,1,112,50.44v93.11a9.46,9.46,0,0,1-9.44,9.44H98.44A9.46,9.46,0,0,1,89,143.56V50.44A9.46,9.46,0,0,1,98.44,41h4.11m0-1H98.44A10.48,10.48,0,0,0,88,50.44v93.11A10.48,10.48,0,0,0,98.44,154h4.11A10.48,10.48,0,0,0,113,143.56V50.44A10.48,10.48,0,0,0,102.56,40Z" transform="translate(-43 -40)"></path>
-                </svg>
-            </div>
-        </nav>
-
         <!-- Footer Start -->
         <footer class="footer pt-3">
             <div class="container-fluid">
