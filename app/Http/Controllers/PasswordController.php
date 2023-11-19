@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Foundation\Auth\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class PasswordController extends Controller
@@ -14,10 +17,10 @@ class PasswordController extends Controller
 
     public function update(Request $request)
     {
-        $request->validate([
-            'old_password' => ['required'],
-            'new_password' => ['required', 'min:8', 'confirm_password'],
-        ]);
+        // $request->validate([
+        //     'old_password' => ['required'],
+        //     'new_password' => ['required', 'min:8', 'confirm_password'],
+        // ]);
 
         $old_check = Hash::check($request->old_password, auth()->user()->password);
 
@@ -31,9 +34,10 @@ class PasswordController extends Controller
             return back()->with('error', 'Konfirmasi Password Anda tidak sesuai');
         }
 
-        auth()->user()->password = Hash::make($request->new_password);
-        auth()->user()->save();
+        // return dd(Auth::user()->id)->update($request->only(['password']));
 
-        return redirect('/')->with('success', 'Password berhasil diubah');
+        User::where('id', Auth::user()->id)->update($request->only(['password']));
+
+        // return redirect('/weather')->with('success', 'Password berhasil diubah');
     }
 }
