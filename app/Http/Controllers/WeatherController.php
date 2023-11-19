@@ -21,6 +21,6 @@ class WeatherController extends Controller
 
         $weatherData = $response->json();
 
-        return view('layouts.weather', compact('weatherData'));
+        return view('home', compact('weatherData'));
     }
 }

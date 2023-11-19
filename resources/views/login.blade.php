@@ -11,7 +11,7 @@
 </head>
 
 <body class="px-4 px-md-0">
-    <div class="row container ps-md-0 px-4 mb-5">
+    <div class="row container ps-md-0 px-4 mb-5" style="justify-content: center;">
         <div class="col-md-6 bg-white text-md-left text-center left-section d-md-block d-none" style="padding: 100px 50px;">
             <div class="ms-3">
                 <h2>WELCOME TO</h2>
@@ -22,21 +22,24 @@
         <div class="col-md-6 text-white px-4">
             <h1 class="text-center" style="margin-top: 80px;">LOGIN</h1>
 
-            <form action="/login" method="POST" id="loginForm">
+            <form action="/login" method="POST">
                 @csrf
+
                 <div class="input-form mt-4">
                     <div style="position: relative">
                         <i class="fa-regular fa-envelope" style="position: absolute; bottom: 15px; left: 8px;"></i>
-                        <input name="email" type="email" value="{{ old('email') }}" class="mt-4 ms-2 text-white w-100" style="border: 0; border-bottom: 1.8px solid white; background: transparent; padding-left: 30px; padding-bottom: 10px;" placeholder="Email">
+                        <input type="email" name="email" class="mt-4 ms-2 text-white w-100 @error('email') is-invalid @enderror" id="email" autofocus required value="{{ old('email') }}" style="border: 0; border-bottom: 1.8px solid white; background: transparent; padding-left: 30px; padding-bottom: 10px;" placeholder="Email">
 
                         @error('email')
-                        <span class="email-danger">{{ $message }}</span>
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
                         @enderror
 
                     </div>
                     <div style="position: relative">
                         <i class="fas fa-lock" style="position: absolute; bottom: 15px; left: 8px;"></i>
-                        <input name="password" type="password" id="passwordInput" class="mt-4 ms-2 text-white w-100" style="border: 0; border-bottom: 1.8px solid white; background: transparent; padding-left: 30px; padding-bottom: 10px;" placeholder="Password">
+                        <input type="password" name="password" id="password" required class="mt-4 ms-2 text-white w-100" style="border: 0; border-bottom: 1.8px solid white; background: transparent; padding-left: 30px; padding-bottom: 10px;" placeholder="Password">
 
                         @error('password')
                         <span class="password-danger">{{ $message }}</span>
