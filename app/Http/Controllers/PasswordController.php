@@ -17,10 +17,11 @@ class PasswordController extends Controller
 
     public function update(Request $request)
     {
-        // $request->validate([
-        //     'old_password' => ['required'],
-        //     'new_password' => ['required', 'min:8', 'confirm_password'],
-        // ]);
+        $request->validate([
+            'old_password' => ['required'],
+            'new_password' => ['required'],
+            'confirm_password' => ['required'],
+        ]);
 
         $old_check = Hash::check($request->old_password, auth()->user()->password);
 
@@ -34,10 +35,11 @@ class PasswordController extends Controller
             return back()->with('error', 'Konfirmasi Password Anda tidak sesuai');
         }
 
-        // return dd(Auth::user()->id)->update($request->only(['password']));
+        $newPasswordHash = Hash::make($request->new_password);
 
-        User::where('id', Auth::user()->id)->update($request->only(['password']));
+        // Update the password in the database
+        User::where('id', Auth::user()->id)->update(['password' => $newPasswordHash]);
 
-        // return redirect('/weather')->with('success', 'Password berhasil diubah');
+        return redirect('/')->with('success', 'Password berhasil diubah');
     }
 }

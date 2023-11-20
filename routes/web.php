@@ -6,7 +6,7 @@ use App\Http\Controllers\WeatherController;
 use App\Http\Controllers\PasswordController;
 
 
-Route::get('/weather', [WeatherController::class, 'index']);
+Route::get('/', [WeatherController::class, 'index']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
