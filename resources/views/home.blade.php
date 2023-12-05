@@ -118,36 +118,34 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col">
-                                    <div class="location-date">
-                                        <!-- Info lokasi -->
-                                        <div class="location">
-                                            <a id="map-pin"><i data-feather="map-pin"></i></a>
-                                            <p>Gombengsari, Kalipuro, Banyuwangi</p>
-                                        </div>
-                                        <div class="date">
-                                            <a id="calendar"><i data-feather="calendar"></i></a>
-                                            @if(isset($weatherData['dt']))
-                                            <?php
-                                            $dateTime = \Carbon\Carbon::createFromTimestamp($weatherData['dt']);
-                                            ?>
-                                            <p>{{ $dateTime->format('l, d F Y') }}</p>
-                                            @else
-                                            <p>Tanggal tidak tersedia</p>
-                                            @endif
-                                        </div>
-                                        <div class="time">
-                                            <a id="clock"><i data-feather="clock"></i></a>
-                                            @if(isset($weatherData['dt']))
-                                            <?php
-                                            $dateTime = new DateTime();
-                                            $dateTime->setTimezone(new \DateTimeZone('Asia/Jakarta'));
-                                            $time = $dateTime->format('H:i:s');
-                                            ?>
-                                            <p>{{ $time }}</p>
-                                            @else
-                                            <p>Waktu tidak tersedia</p>
-                                            @endif
-                                        </div>
+                                    <!-- Info Lokasi, Waktu, dan Suhu -->
+                                    <div class="location">
+                                        <a id="map-pin"><i data-feather="map-pin"></i></a>
+                                        <p>Gombengsari, Kalipuro, Banyuwangi</p>
+                                    </div>
+                                    <div class="date">
+                                        <a id="calendar"><i data-feather="calendar"></i></a>
+                                        @if(isset($weatherData['dt']))
+                                        <?php
+                                        $dateTime = \Carbon\Carbon::createFromTimestamp($weatherData['dt']);
+                                        ?>
+                                        <p>{{ $dateTime->format('l, d F Y') }}</p>
+                                        @else
+                                        <p>Tanggal tidak tersedia</p>
+                                        @endif
+                                    </div>
+                                    <div class="time">
+                                        <a id="clock"><i data-feather="clock"></i></a>
+                                        @if(isset($weatherData['dt']))
+                                        <?php
+                                        $dateTime = new DateTime();
+                                        $dateTime->setTimezone(new \DateTimeZone('Asia/Jakarta'));
+                                        $time = $dateTime->format('H:i:s');
+                                        ?>
+                                        <p>{{ $time }}</p>
+                                        @else
+                                        <p>Waktu tidak tersedia</p>
+                                        @endif
                                     </div>
                                     <div class="temperature">
                                         @if(isset($weatherData['main']))
@@ -160,11 +158,13 @@
                                         @endif
                                     </div>
                                 </div>
+
+                                <!-- Icon & Info Cuaca -->
                                 <div class="col text-center">
                                     <div class="weather-icon">
                                         @if(isset($weatherData['weather'][0]['icon']))
                                         <div class="weather-icon">
-                                            <img src="http://openweathermap.org/img/wn/{{ $weatherData['weather'][0]['icon'] }}.png" alt="Weather Icon" style="width: 300px; height: 300px;">
+                                            <img src="http://openweathermap.org/img/wn/{{ $weatherData['weather'][0]['icon'] }}.png" alt="Weather Icon" style="width: 150px; height: 150px;">
                                         </div>
                                         @endif
                                     </div>
@@ -176,6 +176,7 @@
                                         @endif
                                     </div>
                                 </div>
+
                             </div>
                             <hr class="horizontal dark mt-0 mb-4" />
                             <div class="row text-center">
