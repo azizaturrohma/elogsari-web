@@ -19,9 +19,9 @@ class PasswordController extends Controller
     public function update(Request $request)
     {
         $request->validate([
-            'old_password' => ['required'],
-            'new_password' => ['required'],
-            'confirm_password' => ['required'],
+            'old_password' => 'required',
+            'new_password' => 'required',
+            'confirm_password' => 'required',
         ]);
 
         $old_check = Hash::check($request->old_password, auth()->user()->password);
@@ -41,6 +41,6 @@ class PasswordController extends Controller
         // Update the password in the database
         User::where('id', Auth::user()->id)->update(['password' => $newPasswordHash]);
 
-        return redirect('/')->with('success', 'Password berhasil diubah');
+        return redirect('/dashboard')->with('success', 'Password berhasil diubah');
     }
 }
