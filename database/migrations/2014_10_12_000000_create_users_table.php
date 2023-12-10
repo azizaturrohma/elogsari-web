@@ -14,6 +14,7 @@ return new class extends Migration
             $table->string('username');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('gender');
             $table->date('date_of_birth')->nullable();
             $table->string('province')->nullable();
             $table->string('city')->nullable();

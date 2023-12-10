@@ -6,9 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('products', function (Blueprint $table) {
@@ -20,7 +17,7 @@ return new class extends Migration
             $table->string('product_name');
             $table->text('product_desc');
             $table->unsignedBigInteger('price');
-            $table->string('availability');
+            $table->string('availability')->default('Tersedia');
             $table->string('image');
             $table->unsignedInteger('weight')->nullable();
             $table->unsignedInteger('stock')->nullable();
@@ -29,9 +26,6 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::table('products', function (Blueprint $table) {

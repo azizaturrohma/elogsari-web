@@ -17,6 +17,7 @@ class AuthController extends Controller
             "username" => "required",
             "email" => "required|email",
             "password" => "required",
+            "gender" => "required|max:10"
         ]);
 
         if ($validateData->fails()) {
@@ -31,6 +32,7 @@ class AuthController extends Controller
             "username" => $request->username,
             "email" => $request->email,
             "password" => bcrypt($request->password),
+            "gender" => $request->gender
         ]);
 
         if ($user->save()) {
