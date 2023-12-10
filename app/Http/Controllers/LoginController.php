@@ -23,7 +23,7 @@ class LoginController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            return redirect('/update-password');
+            return redirect('/dashboard');
         } else {
             return redirect()->route('login')->with('error', 'Email dan password tidak sesuai');
         }

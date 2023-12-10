@@ -10,41 +10,48 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
+
     public function register(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'role_id',
-            'username' => 'required',
-            'email' => 'required|email',
-            'password' => 'required',
+        $validateData = Validator::make($request->all(), [
+            "username" => "required",
+            "email" => "required|email",
+            "password" => "required",
         ]);
 
-        if ($validator->fails()) {
+        if ($validateData->fails()) {
             return response()->json([
-                'success' => false,
-                'message' => 'Terjadi kesalahan',
-                'data' => $validator->errors()
+                'status' => false,
+                'message' => 'Validasi gagal',
+                'data' => $validateData->errors(),
             ]);
         }
 
-        $input = $request->all();
-        $input['password'] = bcrypt($input['password']);
-        $user = User::create($input);
-
-        $success['token'] = $user->createToken('auth_token')->plainTextToken;
-        $success['username'] = $user->username;
-
-        return response()->json([
-            'success' => true,
-            'message' => 'Registrasi berhasil',
-            'data' => $success,
+        $user = new User([
+            "username" => $request->username,
+            "email" => $request->email,
+            "password" => bcrypt($request->password),
         ]);
+
+        if ($user->save()) {
+            return response()->json([
+                'status' => true,
+                'message' => 'Insert ke database berhasil',
+                'data' => $user,
+            ]);
+        } else {
+            return response()->json([
+                'status' => false,
+                'message' => 'Insert ke database gagal',
+                'data' => $user,
+            ]);
+        }
     }
 
     public function login(Request $request)
     {
         $loginData = $request->validate([
-            "email" => "required",
+            "email" => "required|email",
             "password" => "required",
         ]);
 
@@ -52,19 +59,18 @@ class AuthController extends Controller
             ['email' => $request->email, 'password' => $request->password]
         )) {
             $auth = Auth::user();
-            $success['token'] = $auth->createToken('auth_token')->plainTextToken;
-            $success['username'] = $auth->username;
+            $data['username'] = $auth->username;
+            $data['token'] = $auth->createToken('auth_token')->plainTextToken;
 
             return response()->json([
-                'success' => true,
+                'status' => true,
                 'message' => 'Login berhasil',
-                'data' => $success,
+                'data' => $data,
             ]);
         } else {
             return response()->json([
-                'success' => false,
+                'status' => false,
                 'message' => 'Login gagal',
-                'data' => null,
             ]);
         }
     }

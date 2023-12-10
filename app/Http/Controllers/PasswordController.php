@@ -8,11 +8,12 @@ use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
+
 class PasswordController extends Controller
 {
     public function index()
     {
-        return view('admin.dashboard.index');
+        return view('admin.dashboard.update-password');
     }
 
     public function update(Request $request)

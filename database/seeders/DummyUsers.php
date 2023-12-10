@@ -14,8 +14,8 @@ class DummyUsers extends Seeder
     public function run(): void
     {
         $userData = [
-            'username' => 'Amini',
-            'email' => 'aminiwahyudi@gmail.com',
+            'username' => 'Ziza',
+            'email' => 'ziza@gmail.com',
             'password' => bcrypt('1234'),
         ];
 
