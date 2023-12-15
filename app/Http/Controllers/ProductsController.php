@@ -34,15 +34,17 @@ class ProductsController extends Controller
         ]);
 
         $validate['user_id'] = auth()->user()->id;
+
         $data = Products::create($validate);
 
         if ($request->hasFile('image')) {
             $request->file('image')->move('images/products/', $request->file('image')->getClientOriginalName());
             $data->image = $request->file('image')->getClientOriginalName();
-            $data->save();
-        }
 
-        return redirect('/dashboard')->with('success', 'Produk ' . $request->product_name . ' berhasil ditambahkan');
+            $data->save();
+
+            return redirect('/dashboard')->with('success', 'Produk ' . $request->product_name . ' berhasil ditambahkan');
+        }
     }
 
 

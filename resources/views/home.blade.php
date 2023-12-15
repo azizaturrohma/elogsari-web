@@ -107,7 +107,7 @@
             <!-- Google Maps -->
             <div class="col-4 mt-4">
                 <div class="maps">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.523841746486!2d114.3240364!3d-8.149857700000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd14fbc14bc0e5f%3A0xfcad40355066433e!2sPokmas%20sumberwaru%20maju!5e0!3m2!1sid!2sid!4v1700389196514!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.523841746486!2d114.3240364!3d-8.149857700000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd14fbc14bc0e5f%3A0xfcad40355066433e!2sPokmas%20sumberwaru%20maju!5e0!3m2!1sid!2sid!4v1700389196514!5m2!1sid!2sid" width="400" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
 

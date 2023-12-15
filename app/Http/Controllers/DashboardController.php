@@ -10,4 +10,9 @@ class DashboardController extends Controller
     {
         return view('admin.dashboard.main-dashboard');
     }
+
+    public function products()
+    {
+        return view('admin.dashboard.products.index');
+    }
 }

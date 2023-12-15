@@ -14,9 +14,9 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $validateData = Validator::make($request->all(), [
-            "username" => "required",
+            "username" => "required|min:3|max:50",
             "email" => "required|email",
-            "password" => "required",
+            "password" => "required|min:4|max:8",
             "gender" => "required|max:10"
         ]);
 
@@ -45,22 +45,30 @@ class AuthController extends Controller
             return response()->json([
                 'status' => false,
                 'message' => 'Insert ke database gagal',
-                'data' => $user,
             ]);
         }
     }
 
     public function login(Request $request)
     {
-        $loginData = $request->validate([
+        $loginData = Validator::make($request->all(), [
             "email" => "required|email",
-            "password" => "required",
+            "password" => "required|min:4",
         ]);
+
+        if ($loginData->fails()) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Validasi gagal',
+                'data' => $loginData->errors(),
+            ]);
+        }
 
         if (Auth::attempt(
             ['email' => $request->email, 'password' => $request->password]
         )) {
             $auth = Auth::user();
+            $data['id'] = $auth->id;
             $data['username'] = $auth->username;
             $data['token'] = $auth->createToken('auth_token')->plainTextToken;
 
@@ -68,7 +76,7 @@ class AuthController extends Controller
                 'status' => true,
                 'message' => 'Login berhasil',
                 'data' => $data,
-            ]);
+            ], 200);
         } else {
             return response()->json([
                 'status' => false,
@@ -76,4 +84,12 @@ class AuthController extends Controller
             ]);
         }
     }
+
+    // public function logout()
+    // {
+    //     auth()->user()->tokens()->delete();
+    //     return response([
+    //         'Logout success'
+    //     ], 200);
+    // }
 }

@@ -14,6 +14,7 @@ Route::post('/login', [LoginController::class, 'login']);
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::get('/products', [DashboardController::class, 'products']);
 
     Route::get('/add-product', [ProductsController::class, 'create'])->name('add-product');
     Route::post('/add-product', [ProductsController::class, 'store']);
