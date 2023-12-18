@@ -53,7 +53,8 @@ class ProductController extends Controller
             ]);
         }
 
-        $image = $this->saveImage($request->image, 'products');
+        $filename = time() . '.' . $request->file('image')->getClientOriginalExtension();
+        $request->file('image')->move(public_path('images/products'), $filename);
 
         $product = Products::create([
             'user_id' => auth()->user()->id,
@@ -62,7 +63,7 @@ class ProductController extends Controller
             'product_desc' => $request->product_desc,
             'price' => $request->price,
             'availability' => $request->availability,
-            'image' => $image,
+            'image' => $filename,
         ]);
 
         return response([
