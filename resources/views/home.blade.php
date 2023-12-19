@@ -17,7 +17,6 @@
 </head>
 
 <body class="null">
-
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white py-1">
         <div class="container">
