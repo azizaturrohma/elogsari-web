@@ -13,13 +13,15 @@
         </div>
     </div>
 </div>
-<div>
-    <img src="assets/img/dashboard/dashboard.png" class="rounded mx-auto d-block" alt="Dashboard" class="btn mt-4 w-30 mx">
-</div>
-<div class="text-center">
-    <p class="mt-4" style="font-family: 'Poppins', sans-serif; font-size: 20px;">SILAHKAN TAMBAH PRODUK ANDA</p>
 
-    <a href="/add-product" class="btn btn-light mt-4 w-30 mx-auto d-block" style="background-color: green; color: white; font-size: 15px">
+<div>
+    <img src="assets/img/dashboard/dashboard.png" class="rounded mx-auto d-block" alt="Elogsari" class="btn mt-4 w-30 mx">
+</div>
+
+<div class="text-center">
+    <p class="mt-4" style="font-family: 'Poppins', sans-serif; font-size: 20px;">SILAHKAN TAMBAH PRODUK ANDA!</p>
+
+    <a href="{{ route('add-product') }}" class="btn btn-light mt-4 w-30 mx-auto d-block" style="background-color: green; color: white; font-size: 15px">
         Tambah Produk
     </a>
 </div>

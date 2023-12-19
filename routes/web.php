@@ -1,26 +1,34 @@
 <?php
 
-use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\WeatherController;
-use App\Http\Controllers\PasswordController;
+use App\Http\Controllers\Auth\PasswordController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductsController;
 
-Route::get('/', [WeatherController::class, 'index']);
+Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
-Route::post('/login', [LoginController::class, 'login']);
+Route::post('/login', [LoginController::class, 'login'])->name('login');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index']);
-    Route::get('/products', [DashboardController::class, 'products']);
+
+    // product
+    Route::get('/products', [ProductsController::class, 'index'])->name('products');
 
     Route::get('/add-product', [ProductsController::class, 'create'])->name('add-product');
     Route::post('/add-product', [ProductsController::class, 'store']);
 
+    Route::get('/edit-product', [ProductsController::class, 'edit'])->name('edit-product');
+    Route::post('/update-product', [ProductsController::class, 'update'])->name('update-product');
+
+    Route::delete('/delete-product', [ProductsController::class, 'update'])->name('delete-product');
+
+    // user
     Route::get('/update-password', [PasswordController::class, 'index'])->name('update-password');
     Route::post('/update-password', [PasswordController::class, 'update']);
 
-    Route::get('/logout', [LoginController::class, 'logout']);
+    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 });

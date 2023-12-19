@@ -19,6 +19,7 @@
                 <p>E-Katalog UMKM Gombengsari</p>
             </div>
         </div>
+
         <div class="col-md-6 text-white px-4">
             <h1 class="text-center" style="margin-top: 80px;">LOGIN</h1>
 
@@ -54,11 +55,11 @@
                     <label class="form-check-label text-white" for="rememberMe">Ingat saya</label>
                 </div>
                 <button name="submit" type="submit" class="btn bg-white btn-light mt-5 w-50">Masuk</button>
+            </form>
         </div>
-        </form>
-    </div>
     </div>
 
+    <!-- Script -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="assets/js/login.js"></script>
 </body>

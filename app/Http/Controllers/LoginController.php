@@ -10,14 +10,14 @@ class LoginController extends Controller
 {
     public function index()
     {
-        return view("login");
+        return view('admin.auth.login');
     }
 
     function login(Request $request)
     {
         $credentials = $request->validate([
-            "email" => "required|email::dns|string",
-            "password" => "required|string",
+            "email" => "required|email|string",
+            "password" => "required|string|min:4|max:8",
         ]);
 
         $credentials = $request->only('email', 'password');
@@ -25,7 +25,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             return redirect('/dashboard');
         } else {
-            return redirect()->route('login')->with('error', 'Email dan password tidak sesuai');
+            return redirect('/login')->with('error', 'Email dan password invalid');
         }
     }
 
