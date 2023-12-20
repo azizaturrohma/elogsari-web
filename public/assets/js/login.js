@@ -1,5 +1,5 @@
-// Toggle password visibility
-const passwordInput = document.getElementById("passwordInput");
+// Toggle visibilitas password
+const passwordInput = document.getElementById("password");
 const eyeSlash = document.getElementById("eyeSlash");
 const eye = document.getElementById("eye");
 

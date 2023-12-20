@@ -28,7 +28,7 @@ Route::middleware(['auth'])->group(function () {
 
     // user
     Route::get('/update-password', [PasswordController::class, 'index'])->name('update-password');
-    Route::post('/update-password', [PasswordController::class, 'update']);
+    Route::post('/update-password', [PasswordController::class, 'update'])->name('update-password');
 
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 });

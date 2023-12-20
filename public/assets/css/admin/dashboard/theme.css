@@ -12,7 +12,7 @@
     --bs-gray: #6c757d;
     --bs-gray-dark: #343a40;
     --bs-body-color: #67748e;
-    --bs-primary: #cb0c9f;
+    --bs-primary: #66d432;
     --bs-secondary: #8392ab;
     --bs-success: #82d616;
     --bs-info: #17c1e8;
@@ -4012,7 +4012,7 @@ fieldset:disabled .btn {
 }
 .nav-link:focus,
 .nav-link:hover {
-    color: #830866;
+    color: #66d432;
 }
 .nav-link.disabled {
     color: #6c757d;

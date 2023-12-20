@@ -33,6 +33,10 @@ input:focus {
     outline: none;
 }
 
+input::placeholder {
+    color: white;
+}
+
 .left-section {
     border-radius: 20px;
 }
