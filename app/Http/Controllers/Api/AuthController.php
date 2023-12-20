@@ -17,7 +17,7 @@ class AuthController extends Controller
             "username" => "required|min:3|max:50",
             "email" => "required|email",
             "password" => "required|min:4|max:8",
-            "gender" => "required|max:10"
+            "gender" => "required|min:1|max:10"
         ]);
 
         if ($validateData->fails()) {
