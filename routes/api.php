@@ -4,12 +4,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\ProductCategoriesController;
+use App\Http\Controllers\Api\PasswordController;
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::middleware('auth:sanctum')->group(function () {
     // user
+    Route::post('/update-password', [PasswordController::class, 'update']);
     Route::post('/logout', [AuthController::class, 'logout']);
 
     // product categories
