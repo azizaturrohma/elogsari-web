@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\ProductController;
+use App\Http\Controllers\Api\ProductCategoriesController;
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
@@ -13,6 +14,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // product categories
     Route::get('/categories', [ProductController::class, 'categories']);
+    Route::post('/product-categories', [ProductCategoriesController::class, 'store']);
 
     // product
     Route::get('/products', [ProductController::class, 'index']);
