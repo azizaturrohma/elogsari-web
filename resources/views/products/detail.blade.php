@@ -45,7 +45,7 @@
                                         <tr>
                                             <td>Harga</td>
                                             <td>:</td>
-                                            <td> Rp.{{ number_format($product->price)}} </td>
+                                            <td> Rp.{{ number_format($product->price) }} </td>
                                         </tr>
                                         <tr>
                                             <td>Ketersediaan</td>
@@ -60,7 +60,11 @@
                                     </tbody>
                                 </table>
                                 <br>
-                                <button type="submit" class="btn btn-primary mt-2" style="color: green;"><i class="fa fa-shopping-cart"></i> Pesan WhatsApp</button>
+                                <button type="submit" class="btn btn-primary mt-2" style="color: green;">
+                                    <a href="https://wa.me/6282143715407" style="color: inherit; text-decoration: none;">
+                                        <i class="fa fa-shopping-cart"></i> Pesan WhatsApp
+                                    </a>
+                                </button>
                             </div>
                         </div>
                     </div>

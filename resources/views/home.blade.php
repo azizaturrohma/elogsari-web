@@ -37,6 +37,7 @@
                         </a>
                     </li>
 
+                    <!-- Dropdown Kategori -->
                     <li class="nav-item dropdown dropdown-hover mx-2">
                         <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" id="dropdownMenuPages1" data-bs-toggle="dropdown" aria-expanded="false">
                             Kategori
@@ -44,10 +45,10 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-animation dropdown-md p-3 border-radius-lg mt-0 mt-lg-3" aria-labelledby="dropdownMenuPages1">
                             <div class="d-none d-lg-block">
-                                <a href="#" class="dropdown-item border-radius-md">Kopi</a>
-                                <a href="#" class="dropdown-item border-radius-md">Jamu</a>
-                                <a href="#" class="dropdown-item border-radius-md">Anyaman</a>
-                                <a href="#" class="dropdown-item border-radius-md">Kue</a>
+                                <a href="{{ route('products.category', ['category_id' => 1]) }}" class="dropdown-item border-radius-md">Kopi</a>
+                                <a href="{{ route('products.category', ['category_id' => 2]) }}" class="dropdown-item border-radius-md">Jamu</a>
+                                <a href="{{ route('products.category', ['category_id' => 3]) }}" class="dropdown-item border-radius-md">Anyaman</a>
+                                <a href="{{ route('products.category', ['category_id' => 4]) }}" class="dropdown-item border-radius-md">Kue</a>
                             </div>
                         </div>
                     </li>

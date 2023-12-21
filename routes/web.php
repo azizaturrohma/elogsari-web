@@ -16,7 +16,7 @@ Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::get('/product', [ProductController::class, 'index'])->name('product');
 Route::get('/product/{id}', [ProductController::class, 'show']);
 
-Route::get('/products/{category_id}', [ProductController::class, 'showByCategory']);
+Route::get('/products/category/{category_id}', [ProductController::class, 'showByCategory'])->name('products.category');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index']);
