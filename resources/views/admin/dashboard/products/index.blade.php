@@ -1,4 +1,4 @@
-@extends('admin.dashboard.layouts.main')
+<!-- @extends('admin.dashboard.layouts.main')
 
 @section('container')
 
@@ -25,7 +25,7 @@
                 </td>
                 <td style="border: 1px solid #000000;" class="text-center">{{ $product->product_name }}</td>
                 <td style="border: 1px solid #000000;" class="text-center">{{ $product->price }}</td>
-                <td style="border: 1px solid #000000;" class="text-center">{{ $product->category->cat_name }}</td>
+                <td style="border: 1px solid #000000;" class="text-center">{{ $product->kategori->cat_name }}</td>
                 <td style="border: 1px solid #000000;" class="text-center">{{ $product->availability }}</td>
                 <td style="border: 1px solid #000000;" class="text-center">
                     <img src="{{ asset('images/products/' . $product->image) }}" alt="Product Image" style="max-width: 100px; max-height: 100px;">
@@ -47,6 +47,4 @@
         {{ $products->links() }}
     </div>
 
-    @include('sweetalert::alert')
-
-    @endsection
+    @endsection -->

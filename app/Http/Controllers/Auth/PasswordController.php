@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\User;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
 
 class PasswordController extends Controller
 {
@@ -17,27 +17,33 @@ class PasswordController extends Controller
 
     public function update(Request $request)
     {
-        $request->validate([
-            'old_password' => 'required|min:4|max:8',
-            'new_password' => 'required|min:4|max:8',
-            'confirm_password' => 'required|min:4|max:8',
-        ]);
+        try {
+            $validator = Validator::make($request->all(), [
+                'old_password' => 'required|min:4|max:8',
+                'new_password' => 'required|min:4|max:8',
+                'confirm_password' => 'required|same:new_password',
+            ]);
 
-        $old_check = Hash::check($request->old_password, auth()->user()->password);
-
-        if (!$old_check) {
-            return back()->with('error', 'Password Anda tidak cocok');
+            $validator->validate();
+        } catch (ValidationException $e) {
+            return redirect('/update-password')
+                ->withErrors($e->validator)
+                ->withInput();
         }
 
-        $confirm_check = $request->new_password == $request->confirm_password;
+        $user = auth()->user();
 
-        if (!$confirm_check) {
-            return back()->with('error', 'Konfirmasi Password Anda tidak sesuai');
+        if (!Hash::check($request->old_password, $user->password)) {
+            return back()->with('error', 'Password lama anda tidak sesuai');
+        }
+
+        if (Hash::check($request->new_password, $user->password)) {
+            return back()->with('error', 'Password baru harus berbeda dengan password lama');
         }
 
         $newPasswordHash = Hash::make($request->new_password);
 
-        User::where('id', Auth::user()->id)->update(['password' => $newPasswordHash]);
+        $user->update(['password' => $newPasswordHash]);
 
         return redirect('/dashboard')->with('success', 'Password berhasil diubah');
     }

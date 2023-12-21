@@ -30,20 +30,13 @@
                     <div style="position: relative">
                         <i class="fa-regular fa-envelope" style="position: absolute; bottom: 15px; left: 8px;"></i>
                         <input type="email" name="email" class="mt-4 ms-2 text-white w-100 @error('email') is-invalid @enderror" id="email" autofocus required value="{{ old('email') }}" style="border: 0; border-bottom: 1.8px solid white; background: transparent; padding-left: 30px; padding-bottom: 10px;" placeholder="Email">
-
-                        @error('email')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                        @enderror
-
                     </div>
                     <div style="position: relative">
                         <i class="fas fa-lock" style="position: absolute; bottom: 15px; left: 8px;"></i>
                         <input type="password" name="password" id="password" required class="mt-4 ms-2 text-white w-100" style="border: 0; border-bottom: 1.8px solid white; background: transparent; padding-left: 30px; padding-bottom: 10px;" placeholder="Password">
 
                         @error('password')
-                        <span class="password-danger">{{ $message }}</span>
+                        <span class="text-danger" style="position: absolute; top: 100%; left: 0; font-size: 0.8rem;">{{ $message }}</span>
                         @enderror
 
                         <i class="fa-regular fa-eye-slash" id="eyeSlash" style="position: absolute; right: 10px; bottom: 15px; cursor: pointer;"></i>

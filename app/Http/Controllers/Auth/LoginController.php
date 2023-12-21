@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
@@ -13,21 +15,28 @@ class LoginController extends Controller
         return view('admin.auth.login');
     }
 
-    function login(Request $request)
+    public function login(Request $request)
     {
-        $credentials = $request->validate([
-            "email" => "required|email|string",
-            "password" => "required|string|min:4|max:8",
-        ]);
+        try {
+            $data = Validator::make($request->all(), [
+                "email" => "required|email|string",
+                "password" => "required|string|min:4|max:8",
+            ])->validate();
+        } catch (ValidationException $e) {
+            return redirect('/login')
+                ->withErrors($e->validator)
+                ->withInput();
+        }
 
-        $credentials = $request->only('email', 'password');
+        $data = $request->only('email', 'password');
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($data)) {
             return redirect('/dashboard');
         } else {
-            return redirect('/login')->with('error', 'Email dan password invalid');
+            return redirect('/login')->with('error', 'Anda tidak terdaftar');
         }
     }
+
 
     function logout(Request $request)
     {

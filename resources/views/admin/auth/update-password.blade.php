@@ -18,20 +18,35 @@
                 <div class="main">
                     <div class="col-lg-6">
                         <div class="form-group">
-                            <label class="form-control-label" for="old">Password Lama</label>
-                            <input name="old_password" type="password" id="old" class="form-control" placeholder="Password Lama" />
+                            <label class="form-control-label" for="old_password">Password Lama</label>
+                            <input name="old_password" type="password" value="{{ old('old_password') }}" id="old_password" class="@error('old_password') is-invalid @enderror form-control" placeholder=" Password Lama" />
+                            @error('old_password')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
-                            <label class="form-control-label" for="new">Password Baru</label>
-                            <input name="new_password" type="password" id="new" class="form-control" placeholder="Password Baru" />
+                            <label class="form-control-label" for="new_password">Password Baru</label>
+                            <input name="new_password" type="password" value="{{ old('new_password') }}" id="new_password" class="@error('new_password') is-invalid @enderror form-control" placeholder="Password Baru" />
+                            @error('new_password')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
-                            <label class="form-control-label" for="confirm">Konfirmasi Password</label>
-                            <input name="confirm_password" type="password" id="confirm" class="form-control" placeholder="Konfirmasi Password" />
+                            <label class="form-control-label" for="confirm_password">Konfirmasi Password</label>
+                            <input name="confirm_password" type="password" value="{{ old('confirm_password') }}" id="confirm_password" class="@error('confirm_password') is-invalid @enderror form-control" placeholder="Konfirmasi Password" />
+                            @error('confirm_password')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
                         </div>
                     </div>
                     <button name="submit" type="submit" class="btn btn-light mt-3 w-50" style="background-color: green; color: white; font-size: 15px">

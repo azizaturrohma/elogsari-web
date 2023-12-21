@@ -32,7 +32,7 @@
                 <ul class="navbar-nav navbar-nav-hover w-100">
 
                     <li class="nav-item dropdown dropdown-hover mx-2">
-                        <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" id="dropdownMenuBlocks" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a href="/" class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" id="dropdownMenuBlocks" data-bs-toggle="dropdown" aria-expanded="false">
                             Beranda
                         </a>
                     </li>
@@ -53,7 +53,7 @@
                     </li>
 
                     <li class="nav-item dropdown dropdown-hover mx-2">
-                        <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" id="dropdownMenuBlocks" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a href="/product" class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" id="dropdownMenuBlocks" data-bs-toggle="dropdown" aria-expanded="false">
                             Produk
                         </a>
                     </li>
@@ -91,7 +91,7 @@
                             Jika kau ingin tahu apa bahagiaku, itu senyumanmu:v
                         </p>
                         <div class="buttons">
-                            <a href="/login" class="btn btn-sm btn-round mb-0 me-1 mt-4 mt-md-0 btn-success">ALL PRODUCTS</a>
+                            <a href="/product" class="btn btn-sm btn-round mb-0 me-1 mt-4 mt-md-0 btn-success">ALL PRODUCTS</a>
                         </div>
                     </div>
                 </div>
